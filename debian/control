@@ -2,22 +2,15 @@ Source: ros-fuerte-actionlib
 Section: misc
 Priority: extra
 Maintainer: Eitan Marder-Eppstein <eitan@willowgarage.com>
-Build-Depends: debhelper (>= 7.0.50~), ros-fuerte-ros-comm,ros-fuerte-ros,ros-fuerte-common-msgs
+Build-Depends: debhelper (>= 7.0.50~), ros-fuerte-catkin,ros-fuerte-ros-comm,ros-fuerte-ros,ros-fuerte-common-msgs
 Homepage: http://www.ros.org/wiki/actionlib
 Standards-Version: 3.9.2
 
 Package: ros-fuerte-actionlib
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ros-fuerte-ros-comm,ros-fuerte-ros,ros-fuerte-common-msgs
-Description: 
-    The actionlib stack provides a standardized interface for
-    interfacing with preemptable tasks. Examples of this include moving
-    the base to a target location, performing a laser scan and returning
-    the resulting point cloud, detecting the handle of a door, etc.
-  
+Description: The actionlib stack provides a standardized interface for interfacing with preemptable tasks. Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
  .
  This stack contains the packages:
- * release_actionlib: The actionlib package provides a standardized interface for interfacing with preemptible tasks. Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
- * upstream: The actionlib package provides a standardized interface for interfacing with preemptible tasks. Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
- * .: The actionlib package provides a standardized interface for interfacing with preemptible tasks. Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
+ * actionlib: The actionlib package provides a standardized interface for interfacing with preemptible tasks. Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
 
