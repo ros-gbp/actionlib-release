@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 2.8)
 project(actionlib)
-find_package(catkin)
+find_package(catkin REQUIRED)
 catkin_stack()
 catkin_project(actionlib
   LIBRARIES actionlib
   INCLUDE_DIRS include
   )
 
-find_package(ROS COMPONENTS
+find_package(ROS REQUIRED COMPONENTS
   rostime roscpp_serialization roscpp_traits cpp_common # serialization stuff
   roscpp rosconsole xmlrpcpp #roscpp stuff
   actionlib_msgs rosunit rostest)
