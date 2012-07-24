@@ -1,14 +1,14 @@
-Source: ros-fuerte-actionlib
+Source: ros-groovy-actionlib
 Section: misc
 Priority: extra
 Maintainer: Eitan Marder-Eppstein <eitan@willowgarage.com>
-Build-Depends: debhelper (>= 7.0.50~), ros-fuerte-ros,ros-fuerte-genmsg,ros-fuerte-langs-dev,ros-fuerte-common-msgs,ros-fuerte-ros-comm,ros-fuerte-catkin
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-common-msgs,ros-groovy-catkin,ros-groovy-genmsg,ros-groovy-ros,ros-groovy-ros-comm,ros-groovy-langs-dev
 Homepage: http://www.ros.org/wiki/actionlib
 Standards-Version: 3.9.2
 
-Package: ros-fuerte-actionlib
+Package: ros-groovy-actionlib
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ros-fuerte-ros-comm,ros-fuerte-ros,ros-fuerte-langs,ros-fuerte-common-msgs
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-common-msgs,ros-groovy-ros-comm,ros-groovy-ros,ros-groovy-langs
 Description: The actionlib stack provides a standardized interface for interfacing with preemptable tasks. Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
  .
  This stack contains the packages:
