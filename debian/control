@@ -1,0 +1,12 @@
+Source: ros-groovy-actionlib
+Section: misc
+Priority: extra
+Maintainer: Eitan Marder-Eppstein <eitan@willowgarage.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-rosconsole,ros-groovy-genmsg,ros-groovy-catkin,ros-groovy-roscpp,ros-groovy-actionlib-msgs,ros-groovy-rostime,ros-groovy-roscpp-traits,ros-groovy-rostest,ros-groovy-langs-dev,ros-groovy-rospy,ros-groovy-cpp-common,libboost1.46-all-dev
+Homepage: http://www.ros.org/wiki/actionlib
+Standards-Version: 3.9.2
+
+Package: ros-groovy-actionlib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-rosconsole,ros-groovy-roscpp,ros-groovy-actionlib-msgs,ros-groovy-rostime,ros-groovy-roscpp-traits,ros-groovy-rostest,ros-groovy-rospy,ros-groovy-langs,ros-groovy-cpp-common,libboost1.46-all-dev
+Description: The actionlib stack provides a standardized interface for interfacing with preemptable tasks. Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
