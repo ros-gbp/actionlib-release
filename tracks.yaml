@@ -30,7 +30,7 @@ tracks:
     last_version: !!python/unicode '1.8.7'
     name: actionlib
     patches: null
-    release_inc: '0'
+    release_inc: '1'
     release_tag: :{version}
     ros_distro: fuerte
     vcs_type: hg
