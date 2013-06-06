@@ -1,26 +1,26 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 2.8.3)
 project(actionlib)
 
-find_package(catkin REQUIRED COMPONENTS
-  rostime roscpp_serialization roscpp_traits cpp_common # serialization stuff
-  roscpp rosconsole xmlrpcpp #roscpp stuff
-  actionlib_msgs rosunit rostest)
+find_package(catkin REQUIRED COMPONENTS actionlib_msgs message_generation roscpp rostest rosunit std_msgs)
 find_package(Boost REQUIRED COMPONENTS thread)
-catkin_package(DEPENDS actionlib_msgs cpp_common Boost rosconsole roscpp roscpp_traits rostime
-               INCLUDE_DIRS include
-               LIBRARIES actionlib
-)
 
-include_directories(include ${catkin_INCLUDE_DIRS})
+include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
 link_directories(${catkin_LIBRARY_DIRS})
-
-add_library(actionlib src/connection_monitor.cpp src/goal_id_generator.cpp)
-target_link_libraries(actionlib ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 
 catkin_python_setup()
 
 add_action_files(DIRECTORY action FILES Test.action TestRequest.action TwoInts.action)
-generate_messages(DEPENDENCIES std_msgs actionlib_msgs)
+generate_messages(DEPENDENCIES actionlib_msgs std_msgs)
+
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES actionlib
+  CATKIN_DEPENDS actionlib_msgs message_runtime roscpp std_msgs
+  DEPENDS Boost
+)
+
+add_library(actionlib src/connection_monitor.cpp src/goal_id_generator.cpp)
+target_link_libraries(actionlib ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_dependencies(actionlib actionlib_gencpp)
 
 install(PROGRAMS tools/axclient.py tools/axserver.py tools/dynamic_action.py tools/library.py
