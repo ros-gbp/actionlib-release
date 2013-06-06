@@ -2,18 +2,18 @@
 Changelog for package actionlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.9.12 (2013-06-06)
+1.10.1 (2013-06-06)
 -------------------
 * fix location of library before installation (`#1 <https://github.com/ros/actionlib/issues/1>`_)
+
+1.10.0 (2013-04-11)
+-------------------
 * define DEPRECATED only if not defined already
 * modified dependency type of catkin to buildtool
 
 1.9.11 (2012-12-13)
 -------------------
 * first public release for Groovy
-
-1.8 (Fuerte)
-============
 
 1.8.7 (2012-06-14)
 ------------------
