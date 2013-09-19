@@ -45,9 +45,9 @@
 #include <boost/shared_ptr.hpp>
 
 namespace actionlib {
-  //forward declaration of ActionServerBase
+  //forward declaration of ActionServer
   template <class ActionSpec>
-  class ActionServerBase;
+  class ActionServer;
 
   /**
    * @class ServerGoalHandle
@@ -116,16 +116,6 @@ namespace actionlib {
       void publishFeedback(const Feedback& feedback);
 
       /**
-       * @brief Determine if the goal handle is valid (tracking a valid goal,
-       * and associated with a valid action server). If the handle is valid, it
-       * means that the accessors \ref getGoal, \ref getGoalID, etc, can be
-       * called without generating errors.
-       *
-       * @return True if valid, False if invalid
-       */
-      bool isValid() const;
-
-      /**
        * @brief  Accessor for the goal associated with the ServerGoalHandle
        * @return A shared_ptr to the goal object
        */
@@ -154,21 +144,21 @@ namespace actionlib {
        * @param other The ServerGoalHandle to compare to
        * @return True if the ServerGoalHandles refer to the same goal, false otherwise
        */
-      bool operator==(const ServerGoalHandle& other) const;
+      bool operator==(const ServerGoalHandle& other);
 
       /**
        * @brief  != operator for ServerGoalHandles
        * @param other The ServerGoalHandle to compare to
        * @return True if the ServerGoalHandles refer to different goals, false otherwise
        */
-      bool operator!=(const ServerGoalHandle& other) const;
+      bool operator!=(const ServerGoalHandle& other);
 
     private:
       /**
        * @brief  A private constructor used by the ActionServer to initialize a ServerGoalHandle
        */
       ServerGoalHandle(typename std::list<StatusTracker<ActionSpec> >::iterator status_it,
-          ActionServerBase<ActionSpec>* as, boost::shared_ptr<void> handle_tracker, boost::shared_ptr<DestructionGuard> guard);
+          ActionServer<ActionSpec>* as, boost::shared_ptr<void> handle_tracker, boost::shared_ptr<DestructionGuard> guard);
 
       /**
        * @brief  A private method to set status to PENDING or RECALLING
@@ -178,10 +168,10 @@ namespace actionlib {
 
       typename std::list<StatusTracker<ActionSpec> >::iterator status_it_;
       boost::shared_ptr<const ActionGoal> goal_;
-      ActionServerBase<ActionSpec>* as_;
+      ActionServer<ActionSpec>* as_;
       boost::shared_ptr<void> handle_tracker_;
       boost::shared_ptr<DestructionGuard> guard_;
-      friend class ActionServerBase<ActionSpec>;
+      friend class ActionServer<ActionSpec>;
   };
 
 };

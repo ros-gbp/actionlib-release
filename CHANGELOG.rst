@@ -2,33 +2,24 @@
 Changelog for package actionlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.10.3 (2013-08-27)
+1.9.13 (2013-09-18)
 -------------------
-* Merged pull request `#15 <https://github.com/ros/actionlib/issues/15>`_
-  Fixes a compile issue for actionlib headers on OS X
-
-1.10.2 (2013-08-21)
--------------------
-* separating ActionServer implementation into base class and ros-publisher-based class (`#11 <https://github.com/ros/actionlib/issues/11>`_)
 * support CATKIN_ENABLE_TESTING
-* add isValid to ServerGoalHandle (`#14 <https://github.com/ros/actionlib/issues/14>`_)
-* make operators const (`#10 <https://github.com/ros/actionlib/issues/10>`_)
-* add counting of connections to avoid reconnect problem when callbacks are invoked in different order (`#7 <https://github.com/ros/actionlib/issues/7>`_)
 * fix deadlock in simple_action_server.py (`#4 <https://github.com/ros/actionlib/issues/4>`_)
 * fix missing runtime destination for library (`#3 <https://github.com/ros/actionlib/issues/3>`_)
 
-1.10.1 (2013-06-06)
+1.9.12 (2013-06-06)
 -------------------
 * fix location of library before installation (`#1 <https://github.com/ros/actionlib/issues/1>`_)
-
-1.10.0 (2013-04-11)
--------------------
 * define DEPRECATED only if not defined already
 * modified dependency type of catkin to buildtool
 
 1.9.11 (2012-12-13)
 -------------------
 * first public release for Groovy
+
+1.8 (Fuerte)
+============
 
 1.8.7 (2012-06-14)
 ------------------

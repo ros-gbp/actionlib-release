@@ -158,7 +158,7 @@ public:
       /**
        * \brief Checks if two handles point to the same list elem
        */
-      bool operator==(const Handle& rhs) const
+      bool operator==(const Handle& rhs)
       {
           assert(valid_);
           assert(rhs.valid_);

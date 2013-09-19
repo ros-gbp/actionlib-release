@@ -236,11 +236,6 @@ namespace actionlib {
   }
 
   template <class ActionSpec>
-  bool ServerGoalHandle<ActionSpec>::isValid() const{
-    return goal_ && as_!= NULL;
-  }
-
-  template <class ActionSpec>
   boost::shared_ptr<const typename ServerGoalHandle<ActionSpec>::Goal> ServerGoalHandle<ActionSpec>::getGoal() const{
     //if we have a goal that is non-null
     if(goal_){
@@ -296,7 +291,7 @@ namespace actionlib {
   }
 
   template <class ActionSpec>
-  bool ServerGoalHandle<ActionSpec>::operator==(const ServerGoalHandle& other) const{
+  bool ServerGoalHandle<ActionSpec>::operator==(const ServerGoalHandle& other){
     if(!goal_ && !other.goal_)
       return true;
 
@@ -309,13 +304,13 @@ namespace actionlib {
   }
 
   template <class ActionSpec>
-  bool ServerGoalHandle<ActionSpec>::operator!=(const ServerGoalHandle& other) const{
+  bool ServerGoalHandle<ActionSpec>::operator!=(const ServerGoalHandle& other){
     return !(*this == other);
   }
 
   template <class ActionSpec>
   ServerGoalHandle<ActionSpec>::ServerGoalHandle(typename std::list<StatusTracker<ActionSpec> >::iterator status_it,
-      ActionServerBase<ActionSpec>* as, boost::shared_ptr<void> handle_tracker, boost::shared_ptr<DestructionGuard> guard)
+      ActionServer<ActionSpec>* as, boost::shared_ptr<void> handle_tracker, boost::shared_ptr<DestructionGuard> guard)
     : status_it_(status_it), goal_((*status_it).goal_),
     as_(as), handle_tracker_(handle_tracker), guard_(guard){}
 
