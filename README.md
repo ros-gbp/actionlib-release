@@ -1,3 +1,22 @@
+## actionlib - 1.11.0-0
+
+User `dthomas@drudge` released the packages in the `actionlib` repository by running `/usr/bin/bloom-release -r indigo -t indigo actionlib` on `Fri, 14 Feb 2014 00:53:41 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+- rosdistro version: `null`
+- old version: `None-0`
+- new version: `1.11.0-0`
+
+Versions of tools used:
+- bloom version: `0.4.9`
+- catkin_pkg version: `0.1.26`
+- rosdep version: `0.10.25`
+- rosdistro version: `0.3.4`
+- vcstools version: `0.1.33`
+
+
 ## actionlib - 1.9.13-0
 
 User `dthomas@drudge` released the packages in the `actionlib` repository by running `/usr/bin/bloom-release -t groovy -r groovy actionlib` on `Thu, 19 Sep 2013 00:23:02 -0000`
