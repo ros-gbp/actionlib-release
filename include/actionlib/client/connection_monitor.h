@@ -61,7 +61,7 @@ public:
 
   void cancelDisconnectCallback(const ros::SingleSubscriberPublisher& pub);
 
-  void processStatus(const actionlib_msgs::GoalStatusArrayConstPtr& status);
+  void processStatus(const actionlib_msgs::GoalStatusArrayConstPtr& status, const std::string& caller_id);
 
   bool waitForActionServerToStart(const ros::Duration& timeout = ros::Duration(0,0), const ros::NodeHandle& nh = ros::NodeHandle() );
   bool isServerConnected();
@@ -76,8 +76,8 @@ private:
   boost::condition check_connection_condition_;
 
   boost::recursive_mutex data_mutex_;
-  std::set<std::string> goalSubscribers_;
-  std::set<std::string> cancelSubscribers_;
+  std::map<std::string, size_t> goalSubscribers_;
+  std::map<std::string, size_t> cancelSubscribers_;
 
   std::string goalSubscribersString();
   std::string cancelSubscribersString();
