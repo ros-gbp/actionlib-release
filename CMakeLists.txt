@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(actionlib)
 
-find_package(catkin REQUIRED COMPONENTS actionlib_msgs message_generation roscpp rostest rosunit std_msgs)
+find_package(catkin REQUIRED COMPONENTS actionlib_msgs message_generation roscpp rosunit std_msgs)
 find_package(Boost REQUIRED COMPONENTS thread)
 
 include_directories(include ${catkin_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})
@@ -23,8 +23,8 @@ add_library(actionlib src/connection_monitor.cpp src/goal_id_generator.cpp)
 target_link_libraries(actionlib ${catkin_LIBRARIES} ${Boost_LIBRARIES})
 add_dependencies(actionlib actionlib_gencpp)
 
-install(PROGRAMS tools/axclient.py tools/axserver.py tools/dynamic_action.py tools/library.py
-  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}) 
+catkin_install_python(PROGRAMS tools/axclient.py tools/axserver.py tools/dynamic_action.py tools/library.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
@@ -34,5 +34,6 @@ install(DIRECTORY include/${PROJECT_NAME}/
   FILES_MATCHING PATTERN "*.h")
 
 if(CATKIN_ENABLE_TESTING)
+  find_package(rostest)
   add_subdirectory(test)
 endif()
