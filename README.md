@@ -1,3 +1,22 @@
+## actionlib (indigo) - 1.11.2-0
+
+The packages in the `actionlib` repository were released into the `indigo` distro by running `/usr/bin/bloom-release actionlib --track indigo --rosdistro indigo` on `Tue, 20 May 2014 18:33:39 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+- rosdistro version: `1.11.1-0`
+- old version: `1.11.1-0`
+- new version: `1.11.2-0`
+
+Versions of tools used:
+- bloom version: `0.5.8`
+- catkin_pkg version: `0.2.2`
+- rosdep version: `0.10.27`
+- rosdistro version: `0.3.5`
+- vcstools version: `0.1.35`
+
+
 ## actionlib (indigo) - 1.11.1-0
 
 The packages in the `actionlib` repository were released into the `indigo` distro by running `/usr/bin/bloom-release actionlib --track indigo --rosdistro indigo` on `Thu, 08 May 2014 18:11:33 -0000`
