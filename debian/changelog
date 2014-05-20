@@ -1,0 +1,112 @@
+ros-indigo-actionlib (1.11.2-0trusty) trusty; urgency=high
+
+  * Update python publishers to define queue_size.
+  * Use the correct queue for processing MessageEvents
+  * Contributors: Esteve Fernandez, Michael Ferguson, Nican
+
+ -- Esteve Fernandez <esteve@osrfoundation.org>  Mon, 19 May 2014 22:00:00 -0000
+
+ros-indigo-actionlib (1.11.1-0trusty) trusty; urgency=high
+
+  * Fix uninitialised execute_thread_ member pointer
+  * Make rostest in CMakeLists optional
+  * Use catkin_install_python() to install Python scripts
+  * Contributors: Dirk Thomas, Esteve Fernandez, Jordi Pages, Lukas Bulwahn
+
+ -- Esteve Fernandez <esteve@osrfoundation.org>  Wed, 07 May 2014 22:00:00 -0000
+
+ros-indigo-actionlib (1.11.0-0trusty) trusty; urgency=high
+
+  * replace usage of __connection_header with MessageEvent (#20 <https://github.com/ros/actionlib/issues/20>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 12 Feb 2014 23:00:00 -0000
+
+ros-indigo-actionlib (1.10.3-0trusty) trusty; urgency=high
+
+  * Merged pull request #15 <https://github.com/ros/actionlib/issues/15>
+    Fixes a compile issue for actionlib headers on OS X
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 26 Aug 2013 22:00:00 -0000
+
+ros-indigo-actionlib (1.10.2-0trusty) trusty; urgency=high
+
+  * separating ActionServer implementation into base class and ros-publisher-based class (#11 <https://github.com/ros/actionlib/issues/11>)
+  * support CATKIN_ENABLE_TESTING
+  * add isValid to ServerGoalHandle (#14 <https://github.com/ros/actionlib/issues/14>)
+  * make operators const (#10 <https://github.com/ros/actionlib/issues/10>)
+  * add counting of connections to avoid reconnect problem when callbacks are invoked in different order (#7 <https://github.com/ros/actionlib/issues/7>)
+  * fix deadlock in simple_action_server.py (#4 <https://github.com/ros/actionlib/issues/4>)
+  * fix missing runtime destination for library (#3 <https://github.com/ros/actionlib/issues/3>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 20 Aug 2013 22:00:00 -0000
+
+ros-indigo-actionlib (1.10.1-0trusty) trusty; urgency=high
+
+  * fix location of library before installation (#1 <https://github.com/ros/actionlib/issues/1>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 05 Jun 2013 22:00:00 -0000
+
+ros-indigo-actionlib (1.10.0-0trusty) trusty; urgency=high
+
+  * define DEPRECATED only if not defined already
+  * modified dependency type of catkin to buildtool
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 10 Apr 2013 22:00:00 -0000
+
+ros-indigo-actionlib (1.9.11-0trusty) trusty; urgency=high
+
+  * first public release for Groovy
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 12 Dec 2012 23:00:00 -0000
+
+ros-indigo-actionlib (1.8.7-0trusty) trusty; urgency=high
+
+  * add new CommState LOST
+  * added more missing dependencies
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 13 Jun 2012 22:00:00 -0000
+
+ros-indigo-actionlib (1.8.6-0trusty) trusty; urgency=high
+
+  * added missing dependencies
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 04 Jun 2012 22:00:00 -0000
+
+ros-indigo-actionlib (1.8.5-0trusty) trusty; urgency=high
+
+  * make axclient work base on topic name only
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 30 May 2012 22:00:00 -0000
+
+ros-indigo-actionlib (1.8.4-0trusty) trusty; urgency=high
+
+  * add missing axserver/axclient install
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 04 Apr 2012 22:00:00 -0000
+
+ros-indigo-actionlib (1.8.3-0trusty) trusty; urgency=high
+
+  * fix issue with locking in action server (#5391 <https://code.ros.org/trac/ros-pkg/ticket/5391>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 14 Mar 2012 23:00:00 -0000
+
+ros-indigo-actionlib (1.8.2-0trusty) trusty; urgency=high
+
+  * update to newer catkin API
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 28 Feb 2012 23:00:00 -0000
+
+ros-indigo-actionlib (1.8.1-0trusty) trusty; urgency=high
+
+  * fix Python packaging
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 20 Feb 2012 23:00:00 -0000
+
+ros-indigo-actionlib (1.8.0-0trusty) trusty; urgency=high
+
+  * separated from common stack
+  * converted to use catkin
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Mon, 06 Feb 2012 23:00:00 -0000
+
+
