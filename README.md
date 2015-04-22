@@ -1,3 +1,24 @@
+## actionlib (jade) - 1.11.4-0
+
+The packages in the `actionlib` repository were released into the `jade` distro by running `/usr/bin/bloom-release actionlib --track jade --rosdistro jade` on `Wed, 22 Apr 2015 18:22:09 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.11.3-0`
+- old version: `1.11.3-0`
+- new version: `1.11.4-0`
+
+Versions of tools used:
+- bloom version: `0.5.19`
+- catkin_pkg version: `0.2.8`
+- rosdep version: `0.11.2`
+- rosdistro version: `0.4.2`
+- vcstools version: `0.1.36`
+
+
 ## actionlib (jade) - 1.11.3-0
 
 The packages in the `actionlib` repository were released into the `jade` distro by running `/usr/bin/bloom-release actionlib --track jade --rosdistro jade --new-track` on `Wed, 31 Dec 2014 19:14:07 -0000`
