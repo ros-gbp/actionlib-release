@@ -1,3 +1,26 @@
+## actionlib (indigo) - 1.11.5-0
+
+The packages in the `actionlib` repository were released into the `indigo` distro by running `/usr/bin/bloom-release actionlib -r indigo -t indigo` on `Fri, 18 Mar 2016 16:15:14 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: git@github.com:ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.11.3-0`
+- old version: `1.11.3-0`
+- new version: `1.11.5-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.21`
+- catkin_pkg version: `0.2.10`
+- rosdep version: `0.11.4`
+- rosdistro version: `0.4.5`
+- vcstools version: `0.1.38`
+
+
 ## actionlib (kinetic) - 1.11.5-0
 
 The packages in the `actionlib` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release actionlib -r kinetic -t kinetic --new-track` on `Mon, 14 Mar 2016 18:25:14 -0000`
