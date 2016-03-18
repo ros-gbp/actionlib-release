@@ -1,16 +1,18 @@
 <package>
   <name>actionlib</name>
-  <version>1.11.3</version>
+  <version>1.11.5</version>
   <description>
     The actionlib stack provides a standardized interface for
     interfacing with preemptable tasks. Examples of this include moving
     the base to a target location, performing a laser scan and returning
     the resulting point cloud, detecting the handle of a door, etc.
   </description>
-  <maintainer email="esteve@osrfoundation.org">Esteve Fernandez</maintainer>
+  <maintainer email="mikael@osrfoundation.org">Mikael Arguedas</maintainer>
   <license>BSD</license>
 
   <url type="website">http://www.ros.org/wiki/actionlib</url>
+  <url type="bugtracker">https://github.com/ros/actionlib/issues</url>
+  <url type="repository">https://github.com/ros/actionlib</url>
   <author>Eitan Marder-Eppstein</author>
   <author>Vijay Pradeep</author>
 
