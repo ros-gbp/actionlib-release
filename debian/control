@@ -1,0 +1,13 @@
+Source: ros-jade-actionlib
+Section: misc
+Priority: extra
+Maintainer: Mikael Arguedas <mikael@osrfoundation.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-jade-actionlib-msgs, ros-jade-catkin (>= 0.5.78), ros-jade-message-generation, ros-jade-roscpp, ros-jade-rosnode, ros-jade-rospy, ros-jade-rostest, ros-jade-std-msgs
+Homepage: http://www.ros.org/wiki/actionlib
+Standards-Version: 3.9.2
+
+Package: ros-jade-actionlib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, ros-jade-actionlib-msgs, ros-jade-message-runtime, ros-jade-roscpp, ros-jade-rospy, ros-jade-rostest, ros-jade-std-msgs
+Description: The actionlib stack provides a standardized interface for interfacing with preemptable tasks.
+ Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
