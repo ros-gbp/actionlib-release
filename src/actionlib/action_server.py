@@ -31,7 +31,7 @@
 import rospy
 import threading
 
-from actionlib_msgs.msg import *
+from actionlib_msgs.msg import GoalID, GoalStatus, GoalStatusArray
 
 from actionlib.goal_id_generator import GoalIDGenerator
 from actionlib.status_tracker import StatusTracker
@@ -39,7 +39,7 @@ from actionlib.status_tracker import StatusTracker
 from actionlib.handle_tracker_deleter import HandleTrackerDeleter
 from actionlib.server_goal_handle import ServerGoalHandle
 
-from actionlib.exceptions import *
+from actionlib.exceptions import ActionException
 
 
 def nop_cb(goal_handle):
@@ -117,7 +117,6 @@ class ActionServer:
                           "in false to avoid race conditions.")
             self.start()
 
-
     ## @brief  Register a callback to be invoked when a new goal is received, this will replace any  previously registered callback
     ## @param  cb The callback to invoke
     def register_goal_callback(self, cb):
@@ -137,13 +136,19 @@ class ActionServer:
 
     ## @brief  Initialize all ROS connections and setup timers
     def initialize(self):
-        self.status_pub = rospy.Publisher(rospy.remap_name(self.ns)+"/status", GoalStatusArray, latch=True, queue_size=50)
-        self.result_pub = rospy.Publisher(rospy.remap_name(self.ns)+"/result", self.ActionResult, queue_size=50)
-        self.feedback_pub = rospy.Publisher(rospy.remap_name(self.ns)+"/feedback", self.ActionFeedback, queue_size=50)
+        self.pub_queue_size = rospy.get_param('actionlib_server_pub_queue_size', 50)
+        if self.pub_queue_size < 0:
+            self.pub_queue_size = 50
+        self.status_pub = rospy.Publisher(rospy.remap_name(self.ns)+"/status", GoalStatusArray, latch=True, queue_size=self.pub_queue_size)
+        self.result_pub = rospy.Publisher(rospy.remap_name(self.ns)+"/result", self.ActionResult, queue_size=self.pub_queue_size)
+        self.feedback_pub = rospy.Publisher(rospy.remap_name(self.ns)+"/feedback", self.ActionFeedback, queue_size=self.pub_queue_size)
 
-        self.goal_sub = rospy.Subscriber(rospy.remap_name(self.ns)+"/goal", self.ActionGoal, self.internal_goal_callback)
+        self.sub_queue_size = rospy.get_param('actionlib_server_sub_queue_size', -1)
+        if self.sub_queue_size < 0:
+            self.sub_queue_size = None
+        self.goal_sub = rospy.Subscriber(rospy.remap_name(self.ns)+"/goal", self.ActionGoal, callback=self.internal_goal_callback, queue_size=self.sub_queue_size)
 
-        self.cancel_sub = rospy.Subscriber(rospy.remap_name(self.ns)+"/cancel", GoalID, self.internal_cancel_callback)
+        self.cancel_sub = rospy.Subscriber(rospy.remap_name(self.ns)+"/cancel", GoalID, callback=self.internal_cancel_callback, queue_size=self.sub_queue_size)
 
         # read the frequency with which to publish status from the parameter server
         # if not specified locally explicitly, use search param to find actionlib_status_frequency
@@ -177,7 +182,6 @@ class ActionServer:
                 self.result_pub.publish(ar)
             self.publish_status()
 
-
     ## @brief  Publishes feedback for a given goal
     ## @param status The status of the goal with which the feedback is associated
     ## @param feedback The feedback to publish
@@ -189,7 +193,6 @@ class ActionServer:
             af.feedback = feedback
             if not rospy.is_shutdown():
                 self.feedback_pub.publish(af)
-
 
     ## @brief  The ROS callback for cancel requests coming into the ActionServer
     def internal_cancel_callback(self, goal_id):
@@ -236,7 +239,7 @@ class ActionServer:
 
             # if the requested goal_id was not found, and it is non-zero, then we need to store the cancel request
             if goal_id.id != "" and not goal_id_found:
-                tracker = StatusTracker(goal_id, actionlib_msgs.msg.GoalStatus.RECALLING)
+                tracker = StatusTracker(goal_id, GoalStatus.RECALLING)
                 self.status_list.append(tracker)
                 # start the timer for how long the status will live in the list without a goal handle to it
                 tracker.handle_destruction_time = rospy.Time.now()
@@ -244,7 +247,6 @@ class ActionServer:
             # make sure to set last_cancel_ based on the stamp associated with this cancel request
             if goal_id.stamp > self.last_cancel:
                 self.last_cancel = goal_id.stamp
-
 
     ## @brief  The ROS callback for goals coming into the ActionServer
     def internal_goal_callback(self, goal):
@@ -260,8 +262,8 @@ class ActionServer:
                 if goal.goal_id.id == st.status.goal_id.id:
                     rospy.logdebug("Goal %s was already in the status list with status %i" % (goal.goal_id.id, st.status.status))
                     # Goal could already be in recalling state if a cancel came in before the goal
-                    if st.status.status == actionlib_msgs.msg.GoalStatus.RECALLING:
-                        st.status.status = actionlib_msgs.msg.GoalStatus.RECALLED
+                    if st.status.status == GoalStatus.RECALLING:
+                        st.status.status = GoalStatus.RECALLED
                         self.publish_result(st.status, self.ActionResultType())
 
                     # if this is a request for a goal that has no active handles left,
@@ -302,7 +304,7 @@ class ActionServer:
     def publish_status(self):
         with self.lock:
             # build a status array
-            status_array = actionlib_msgs.msg.GoalStatusArray()
+            status_array = GoalStatusArray()
 
             # status_array.set_status_list_size(len(self.status_list));
 
