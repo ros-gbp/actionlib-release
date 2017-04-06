@@ -2,6 +2,22 @@
 Changelog for package actionlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.11.9 (2017-03-27)
+-------------------
+* Python3 compatibility + pep8 compliance (`#71 <https://github.com/ros/actionlib/issues/71>`_) follow-up of (`#43 <https://github.com/ros/actionlib/issues/43>`_)
+* - wait for ros::Time::now to become valid before init of connection_monitor (`#62 <https://github.com/ros/actionlib/issues/62>`_)
+  - bugfix : connection_monitor should wait for result
+* fixed default value for rosparam. closes `#69 <https://github.com/ros/actionlib/issues/69>`_ (`#70 <https://github.com/ros/actionlib/issues/70>`_)
+* Contributors: 1r0b1n0, Mikael Arguedas, Piyush Khandelwal
+
+1.11.8 (2017-02-17)
+-------------------
+* Fixes a deadlock (`#64 <https://github.com/ros/actionlib/issues/64>`_)
+* Removed unused variables warnings (`#63 <https://github.com/ros/actionlib/issues/63>`_ `#65 <https://github.com/ros/actionlib/issues/65>`_)
+* If using sim time, wait for /clock (`#59 <https://github.com/ros/actionlib/issues/59>`_)
+* add parameters to configure queue sizes (`#55 <https://github.com/ros/actionlib/pull/55>`_)
+* Contributors: Esteve Fernandez, Jonathan Meyer, Mikael Arguedas, Patrick Beeson, Robin Vanhove
+
 1.11.7 (2016-10-24)
 -------------------
 * Merge pull request `#57 <https://github.com/ros/actionlib/issues/57>`_ from stonier/patch-1
