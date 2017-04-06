@@ -1,0 +1,199 @@
+ros-indigo-actionlib (1.11.9-0saucy) saucy; urgency=high
+
+  * Python3 compatibility + pep8 compliance (#71 <https://github.com/ros/actionlib/issues/71>) follow-up of (#43 <https://github.com/ros/actionlib/issues/43>)
+  * 
+    
+      * wait for ros::Time::now to become valid before init of connection_monitor (#62 <https://github.com/ros/actionlib/issues/62>)
+      * bugfix : connection_monitor should wait for result
+    
+  * fixed default value for rosparam. closes #69 <https://github.com/ros/actionlib/issues/69> (#70 <https://github.com/ros/actionlib/issues/70>)
+  * Contributors: 1r0b1n0, Mikael Arguedas, Piyush Khandelwal
+
+ -- Mikael Arguedas <mikael@osrfoundation.org>  Mon, 27 Mar 2017 07:00:00 -0000
+
+ros-indigo-actionlib (1.11.8-0saucy) saucy; urgency=high
+
+  * Fixes a deadlock (#64 <https://github.com/ros/actionlib/issues/64>)
+  * Removed unused variables warnings (#63 <https://github.com/ros/actionlib/issues/63> #65 <https://github.com/ros/actionlib/issues/65>)
+  * If using sim time, wait for /clock (#59 <https://github.com/ros/actionlib/issues/59>)
+  * add parameters to configure queue sizes (#55 <https://github.com/ros/actionlib/pull/55>)
+  * Contributors: Esteve Fernandez, Jonathan Meyer, Mikael Arguedas, Patrick Beeson, Robin Vanhove
+
+ -- Mikael Arguedas <mikael@osrfoundation.org>  Fri, 17 Feb 2017 08:00:00 -0000
+
+ros-indigo-actionlib (1.11.7-0saucy) saucy; urgency=high
+
+  * Merge pull request #57 <https://github.com/ros/actionlib/issues/57> from stonier/patch-1
+    Remove misleading error log
+  * Remove misleading error log
+    This was introduced in https://github.com/ros/actionlib/pull/43.
+    It is not actually correct - you can feasibly get feedback here before a new goal is confirmed. See send_goal()....
+    ```
+    def send_goal(self, goal, done_cb=None, active_cb=None, feedback_cb=None):
+    # destroys the old goal handle
+    self.stop_tracking_goal()
+    ...
+    self.gh = self.action_client.send_goal(goal, self._handle_transition, self._handle_feedback)
+    ```
+    and of course it will take more time on top of this for the server to actually process the incoming goal and confirm it. Meantime, it may have sent us feedback messages.
+  * Improved the const-correctness of some actionlib classes. (#50 <https://github.com/ros/actionlib/issues/50>)
+  * Issue #51 <https://github.com/ros/actionlib/issues/51>: Remove annoying debug messages that make useless to enable debug on Python nodes, as they overwhelm less spamming messages (#54 <https://github.com/ros/actionlib/issues/54>)
+  * reduce change of unncessary exception on shutdown bu checking directly in before publishing for a shutdown (#53 <https://github.com/ros/actionlib/issues/53>)
+  * Contributors: Blake Anderson, Daniel Stonier, Jorge Santos Simón, Mikael Arguedas, uliklank
+
+ -- Mikael Arguedas <mikael@osrfoundation.org>  Mon, 24 Oct 2016 07:00:00 -0000
+
+ros-indigo-actionlib (1.11.6-0saucy) saucy; urgency=high
+
+  * Python code cleanup (#43 <https://github.com/ros/actionlib/issues/43>)
+    * Cleaned up semicolons, indentation, spaces.
+    * Removed unused local var after further confirmation of no risk of side effects.
+  * Contributors: Andrew Blakey
+
+ -- Mikael Arguedas <mikael@osrfoundation.org>  Wed, 22 Jun 2016 07:00:00 -0000
+
+ros-indigo-actionlib (1.11.5-0saucy) saucy; urgency=high
+
+  * update maintainer
+  * Merge pull request #42 <https://github.com/ros/actionlib/issues/42> from jonbinney/python3-compat
+    Python 3 compatibility changes
+  * More readable iteration in state name lookup
+  * Update syntax for exception handling
+  * Iterate over dictionary in python3 compatible way
+  * Use absolute imports for python3 compatibility
+  * Merge pull request #39 <https://github.com/ros/actionlib/issues/39> from clearpathrobotics/action-fixup
+    Minor improvements
+  * Enable UI feedback for preempt-requested goal in axserver.py
+  * Clean up axclient.py initialization to allow starting before actionserver, requires action type passed in
+  * Add hashes to ServerGoalHandle and ClientGoalHandles
+  * Contributors: Esteve Fernandez, Jon Binney, Mikael Arguedas, Paul Bovbel
+
+ -- Mikael Arguedas <mikael@osrfoundation.org>  Mon, 14 Mar 2016 07:00:00 -0000
+
+ros-indigo-actionlib (1.11.4-0saucy) saucy; urgency=high
+
+  * Initialize execute_thread_ to NULL
+  * Contributors: Esteve Fernandez
+
+ -- Mikael Arguedas <mikael@osrfoundation.org>  Wed, 22 Apr 2015 07:00:00 -0000
+
+ros-indigo-actionlib (1.11.3-0saucy) saucy; urgency=high
+
+  * Increase queue sizes to match Python client publishers.
+  * Adjust size of client publishers in Python
+  * Contributors: Esteve Fernandez, Michael Ferguson
+
+ -- Esteve Fernandez <esteve@osrfoundation.org>  Tue, 23 Dec 2014 08:00:00 -0000
+
+ros-indigo-actionlib (1.11.2-0saucy) saucy; urgency=high
+
+  * Update python publishers to define queue_size.
+  * Use the correct queue for processing MessageEvents
+  * Contributors: Esteve Fernandez, Michael Ferguson, Nican
+
+ -- Esteve Fernandez <esteve@osrfoundation.org>  Tue, 20 May 2014 07:00:00 -0000
+
+ros-indigo-actionlib (1.11.1-0saucy) saucy; urgency=high
+
+  * Fix uninitialised execute_thread_ member pointer
+  * Make rostest in CMakeLists optional
+  * Use catkin_install_python() to install Python scripts
+  * Contributors: Dirk Thomas, Esteve Fernandez, Jordi Pages, Lukas Bulwahn
+
+ -- Esteve Fernandez <esteve@osrfoundation.org>  Thu, 08 May 2014 07:00:00 -0000
+
+ros-indigo-actionlib (1.11.0-0saucy) saucy; urgency=high
+
+  * replace usage of __connection_header with MessageEvent (#20 <https://github.com/ros/actionlib/issues/20>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 13 Feb 2014 08:00:00 -0000
+
+ros-indigo-actionlib (1.10.3-0saucy) saucy; urgency=high
+
+  * Merged pull request #15 <https://github.com/ros/actionlib/issues/15>
+    Fixes a compile issue for actionlib headers on OS X
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 27 Aug 2013 07:00:00 -0000
+
+ros-indigo-actionlib (1.10.2-0saucy) saucy; urgency=high
+
+  * separating ActionServer implementation into base class and ros-publisher-based class (#11 <https://github.com/ros/actionlib/issues/11>)
+  * support CATKIN_ENABLE_TESTING
+  * add isValid to ServerGoalHandle (#14 <https://github.com/ros/actionlib/issues/14>)
+  * make operators const (#10 <https://github.com/ros/actionlib/issues/10>)
+  * add counting of connections to avoid reconnect problem when callbacks are invoked in different order (#7 <https://github.com/ros/actionlib/issues/7>)
+  * fix deadlock in simple_action_server.py (#4 <https://github.com/ros/actionlib/issues/4>)
+  * fix missing runtime destination for library (#3 <https://github.com/ros/actionlib/issues/3>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 21 Aug 2013 07:00:00 -0000
+
+ros-indigo-actionlib (1.10.1-0saucy) saucy; urgency=high
+
+  * fix location of library before installation (#1 <https://github.com/ros/actionlib/issues/1>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 06 Jun 2013 07:00:00 -0000
+
+ros-indigo-actionlib (1.10.0-0saucy) saucy; urgency=high
+
+  * define DEPRECATED only if not defined already
+  * modified dependency type of catkin to buildtool
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 11 Apr 2013 07:00:00 -0000
+
+ros-indigo-actionlib (1.9.11-0saucy) saucy; urgency=high
+
+  * first public release for Groovy
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 13 Dec 2012 08:00:00 -0000
+
+ros-indigo-actionlib (1.8.7-0saucy) saucy; urgency=high
+
+  * add new CommState LOST
+  * added more missing dependencies
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 14 Jun 2012 07:00:00 -0000
+
+ros-indigo-actionlib (1.8.6-0saucy) saucy; urgency=high
+
+  * added missing dependencies
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 05 Jun 2012 07:00:00 -0000
+
+ros-indigo-actionlib (1.8.5-0saucy) saucy; urgency=high
+
+  * make axclient work base on topic name only
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 31 May 2012 07:00:00 -0000
+
+ros-indigo-actionlib (1.8.4-0saucy) saucy; urgency=high
+
+  * add missing axserver/axclient install
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 05 Apr 2012 07:00:00 -0000
+
+ros-indigo-actionlib (1.8.3-0saucy) saucy; urgency=high
+
+  * fix issue with locking in action server (#5391 <https://code.ros.org/trac/ros-pkg/ticket/5391>)
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Thu, 15 Mar 2012 07:00:00 -0000
+
+ros-indigo-actionlib (1.8.2-0saucy) saucy; urgency=high
+
+  * update to newer catkin API
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Wed, 29 Feb 2012 08:00:00 -0000
+
+ros-indigo-actionlib (1.8.1-0saucy) saucy; urgency=high
+
+  * fix Python packaging
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 21 Feb 2012 08:00:00 -0000
+
+ros-indigo-actionlib (1.8.0-0saucy) saucy; urgency=high
+
+  * separated from common stack
+  * converted to use catkin
+
+ -- Dirk Thomas <dthomas@osrfoundation.org>  Tue, 07 Feb 2012 08:00:00 -0000
+
+
