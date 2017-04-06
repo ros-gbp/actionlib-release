@@ -1,3 +1,26 @@
+## actionlib (jade) - 1.11.9-0
+
+The packages in the `actionlib` repository were released into the `jade` distro by running `/usr/bin/bloom-release -r jade -t jade actionlib` on `Thu, 06 Apr 2017 21:04:43 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.11.7-0`
+- old version: `1.11.7-0`
+- new version: `1.11.9-0`
+
+Versions of tools used:
+
+- bloom version: `0.5.26`
+- catkin_pkg version: `0.3.1`
+- rosdep version: `0.11.5`
+- rosdistro version: `0.6.1`
+- vcstools version: `0.1.39`
+
+
 ## actionlib (kinetic) - 1.11.9-0
 
 The packages in the `actionlib` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release actionlib -r kinetic -t kinetic` on `Thu, 30 Mar 2017 14:54:31 -0000`
