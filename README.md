@@ -1,3 +1,26 @@
+## actionlib (lunar) - 1.11.12-0
+
+The packages in the `actionlib` repository were released into the `lunar` distro by running `/usr/bin/bloom-release actionlib -r lunar -t lunar` on `Wed, 24 Jan 2018 22:42:35 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.11.11-0`
+- old version: `1.11.11-0`
+- new version: `1.11.12-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.2`
+- catkin_pkg version: `0.3.9`
+- rosdep version: `0.11.8`
+- rosdistro version: `0.6.4`
+- vcstools version: `0.1.40`
+
+
 ## actionlib (kinetic) - 1.11.12-0
 
 The packages in the `actionlib` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release actionlib -r kinetic -t kinetic` on `Wed, 24 Jan 2018 22:37:36 -0000`
