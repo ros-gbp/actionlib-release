@@ -2,6 +2,11 @@
 Changelog for package actionlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.11.12 (2017-12-18)
+--------------------
+* fix uncrustify mixup (`#92 <https://github.com/ros/actionlib/issues/92>`_)
+* Contributors: Mikael Arguedas
+
 1.11.11 (2017-10-27)
 --------------------
 * fix typo in server_goal_handle_imp.h (`#89 <https://github.com/ros/actionlib/issues/89>`_)
