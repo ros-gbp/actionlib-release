@@ -1,3 +1,26 @@
+## actionlib (kinetic) - 1.11.13-0
+
+The packages in the `actionlib` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release actionlib -r kinetic -t kinetic` on `Fri, 16 Mar 2018 18:58:21 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.11.12-0`
+- old version: `1.11.12-0`
+- new version: `1.11.13-0`
+
+Versions of tools used:
+
+- bloom version: `0.6.2`
+- catkin_pkg version: `0.4.1`
+- rosdep version: `0.12.1`
+- rosdistro version: `0.6.6`
+- vcstools version: `0.1.40`
+
+
 ## actionlib (indigo) - 1.11.13-0
 
 The packages in the `actionlib` repository were released into the `indigo` distro by running `/usr/bin/bloom-release actionlib -r indigo -t indigo` on `Fri, 16 Mar 2018 18:54:58 -0000`
