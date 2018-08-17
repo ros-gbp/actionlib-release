@@ -34,6 +34,7 @@
 
 
 #include <actionlib/client/connection_monitor.h>
+#include <ros/ros.h>
 
 #include <map>
 #include <sstream>
@@ -275,7 +276,7 @@ bool actionlib::ConnectionMonitor::waitForActionServerToStart(const ros::Duratio
     }
 
     check_connection_condition_.timed_wait(lock,
-      boost::posix_time::milliseconds(time_left.toSec() * 1000.0f));
+      boost::posix_time::milliseconds(static_cast<int64_t>(time_left.toSec() * 1000.0f)));
   }
 
   return isServerConnected();
