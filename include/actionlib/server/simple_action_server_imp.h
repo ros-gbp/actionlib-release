@@ -37,6 +37,7 @@
 #ifndef ACTIONLIB__SERVER__SIMPLE_ACTION_SERVER_IMP_H_
 #define ACTIONLIB__SERVER__SIMPLE_ACTION_SERVER_IMP_H_
 
+#include <ros/ros.h>
 #include <string>
 
 namespace actionlib
@@ -394,7 +395,7 @@ void SimpleActionServer<ActionSpec>::executeLoop()
       }
     } else {
       execute_condition_.timed_wait(lock,
-        boost::posix_time::milliseconds(loop_duration.toSec() * 1000.0f));
+        boost::posix_time::milliseconds(static_cast<int64_t>(loop_duration.toSec() * 1000.0f)));
     }
   }
 }
