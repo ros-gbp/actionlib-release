@@ -1,3 +1,26 @@
+## actionlib (melodic) - 1.12.0-1
+
+The packages in the `actionlib` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --rosdistro melodic --track melodic --override-release-repository-push-url git@github.com:ros-gbp/actionlib-release.git actionlib` on `Wed, 07 Aug 2019 22:14:11 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.11.13-0`
+- old version: `1.11.14-0`
+- new version: `1.12.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.8.0`
+- catkin_pkg version: `0.4.13`
+- rosdep version: `0.15.2`
+- rosdistro version: `0.7.4`
+- vcstools version: `0.1.40`
+
+
 ## actionlib (lunar) - 1.11.15-0
 
 The packages in the `actionlib` repository were released into the `lunar` distro by running `/usr/bin/bloom-release actionlib -r lunar -t lunar` on `Fri, 17 Aug 2018 22:39:54 -0000`
