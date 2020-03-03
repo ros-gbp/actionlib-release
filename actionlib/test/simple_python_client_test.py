@@ -25,59 +25,37 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-PKG = 'actionlib'
 
 import unittest
 import rospy
 from actionlib_msgs.msg import GoalStatus
 from actionlib import SimpleActionClient
-from actionlib import ActionClient
 from actionlib.msg import TestAction, TestGoal
 
 
-class TestRefSimpleActionServer(unittest.TestCase):
+class TestSimpleActionClient(unittest.TestCase):
 
-    def test_one(self):
-        client = SimpleActionClient('reference_simple_action', TestAction)
-        self.assert_(client.wait_for_server(rospy.Duration(2.0)),
-                     'Could not connect to the action server')
+    def testsimple(self):
+        client = SimpleActionClient('reference_action', TestAction)
+        self.assertTrue(client.wait_for_server(rospy.Duration(10.0)),
+                        'Could not connect to the action server')
 
         goal = TestGoal(1)
         client.send_goal(goal)
-        self.assert_(client.wait_for_result(rospy.Duration(2.0)),
-                     "Goal didn't finish")
+        self.assertTrue(client.wait_for_result(rospy.Duration(10.0)),
+                        "Goal didn't finish")
         self.assertEqual(GoalStatus.SUCCEEDED, client.get_state())
+        self.assertEqual("The ref server has succeeded", client.get_goal_status_text())
 
         goal = TestGoal(2)
         client.send_goal(goal)
-        self.assert_(client.wait_for_result(rospy.Duration(10.0)),
-                     "Goal didn't finish")
+        self.assertTrue(client.wait_for_result(rospy.Duration(10.0)),
+                        "Goal didn't finish")
         self.assertEqual(GoalStatus.ABORTED, client.get_state())
-
-        goal = TestGoal(3)
-        client.send_goal(goal)
-        self.assert_(client.wait_for_result(rospy.Duration(10.0)),
-                     "Goal didn't finish")
-
-        # The simple server can't reject goals
-        self.assertEqual(GoalStatus.ABORTED, client.get_state())
-
-        goal = TestGoal(9)
-        saved_feedback = {}
-
-        def on_feedback(fb):
-            rospy.loginfo("Got feedback")
-            saved_feedback[0] = fb
-
-        client.send_goal(goal, feedback_cb=on_feedback)
-        self.assert_(client.wait_for_result(rospy.Duration(10.0)),
-                     "Goal didn't finish")
-        self.assertEqual(GoalStatus.SUCCEEDED, client.get_state())
-
-        self.assertEqual(saved_feedback[0].feedback, 9)
+        self.assertEqual("The ref server has aborted", client.get_goal_status_text())
 
 
 if __name__ == '__main__':
     import rostest
-    rospy.init_node('test_ref_simple_action_server')
-    rostest.rosrun('actionlib', 'test_simple_action_client_python', TestRefSimpleActionServer)
+    rospy.init_node('simple_python_client_test')
+    rostest.rosrun('actionlib', 'test_simple_action_client_python', TestSimpleActionClient)

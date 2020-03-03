@@ -472,7 +472,7 @@ class GoalManager:
     def _get_live_statuses(self):
         with self.list_mutex:
             live_statuses = [r() for r in self.statuses]
-            live_statuses = filter(lambda x: x, live_statuses)
+            live_statuses = [x for x in live_statuses if x]
             return live_statuses
 
     ## Updates the statuses of all goals from the information in status_array.
@@ -534,6 +534,14 @@ class ActionClient:
         self.status_sub = rospy.Subscriber(rospy.remap_name(ns) + '/status', GoalStatusArray, callback=self._status_cb, queue_size=self.sub_queue_size)
         self.result_sub = rospy.Subscriber(rospy.remap_name(ns) + '/result', self.ActionResult, callback=self._result_cb, queue_size=self.sub_queue_size)
         self.feedback_sub = rospy.Subscriber(rospy.remap_name(ns) + '/feedback', self.ActionFeedback, callback=self._feedback_cb, queue_size=self.sub_queue_size)
+
+    ## @brief  Stop the action client.
+    def stop(self):
+        self.pub_goal.unregister()
+        self.pub_cancel.unregister()
+        self.status_sub.unregister()
+        self.result_sub.unregister()
+        self.feedback_sub.unregister()
 
     ## @brief Sends a goal to the action server
     ##
