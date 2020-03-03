@@ -1,3 +1,28 @@
+## actionlib (noetic) - 1.13.0-1
+
+The packages in the `actionlib` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic actionlib` on `Tue, 03 Mar 2020 17:58:34 -0000`
+
+These packages were released:
+- `actionlib`
+- `actionlib_tools`
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.13.0-1`
+
+Versions of tools used:
+
+- bloom version: `0.9.1`
+- catkin_pkg version: `0.4.16`
+- rosdep version: `0.18.0`
+- rosdistro version: `0.8.0`
+- vcstools version: `0.1.42`
+
+
 ## actionlib (melodic) - 1.12.0-1
 
 The packages in the `actionlib` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --rosdistro melodic --track melodic --override-release-repository-push-url git@github.com:ros-gbp/actionlib-release.git actionlib` on `Wed, 07 Aug 2019 22:14:11 -0000`
