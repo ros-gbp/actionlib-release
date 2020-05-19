@@ -1,0 +1,12 @@
+Source: ros-noetic-actionlib-tools
+Section: misc
+Priority: optional
+Maintainer: Michael Carroll <michael@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), ros-noetic-catkin
+Homepage: http://www.ros.org/wiki/actionlib
+Standards-Version: 3.9.2
+
+Package: ros-noetic-actionlib-tools
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-noetic-actionlib, ros-noetic-actionlib-msgs, ros-noetic-roslib, ros-noetic-rospy, ros-noetic-rostopic
+Description: The actionlib_tools package
