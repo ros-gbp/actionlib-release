@@ -2,6 +2,37 @@
 Changelog for package actionlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.11.16 (2020-08-21)
+--------------------
+* Address RVD`#2401 <https://github.com/ros/actionlib/issues/2401>`_ (`#170 <https://github.com/ros/actionlib/issues/170>`_) (`#172 <https://github.com/ros/actionlib/issues/172>`_)
+* Fix tiny typo in docs (`#141 <https://github.com/ros/actionlib/issues/141>`_)
+* fix: Corrected spelling recieved --> received (`#136 <https://github.com/ros/actionlib/issues/136>`_)
+* Fixed warnings when compiling with -Wpedantic. (`#135 <https://github.com/ros/actionlib/issues/135>`_)
+* action_server: call ActionServer<ActionSpec>::initialize() in constructor (`#120 <https://github.com/ros/actionlib/issues/120>`_)
+* Print the correct error on waiting for result (`#123 <https://github.com/ros/actionlib/issues/123>`_)
+* Merge pull request `#97 <https://github.com/ros/actionlib/issues/97>`_ from synapticon/remove-get-state-spam-error
+* Merge pull request `#122 <https://github.com/ros/actionlib/issues/122>`_ from ros/update-maintainer
+* Update maintainer.
+* fix(actionlib): Remove `getState` error output
+* Contributors: Alireza, Bence Magyar, Carl Saldanha, Christopher Wecht, Michael Carroll, Rein Appeldoorn, Remo Diethelm, Shane Loretz, methylDragon
+
+1.11.15 (2018-08-17)
+--------------------
+* unique name for axtools title bar (`#107 <https://github.com/ros/actionlib/issues/107>`_)
+* [bugfix] add missing ros / ros console includes (`#114 <https://github.com/ros/actionlib/issues/114>`_)
+* [bugfix] update posix_time::milliseconds for boost 1.67 (`#111 <https://github.com/ros/actionlib/issues/111>`_)
+* [test] Use portable boost::this_thread::sleep() to sleep so it can be built on Windows (`#112 <https://github.com/ros/actionlib/issues/112>`_)
+* Revert (`#106 <https://github.com/ros/actionlib/issues/106>`_) that broke downstream packages (`#113 <https://github.com/ros/actionlib/issues/113>`_)
+* Contributors: Felix Messmer, Gianfranco Costamagna, Johnson Shih, Mikael Arguedas
+
+1.11.14 (2018-05-21)
+--------------------
+* Complete the full set of Ptr typedefs (`#106 <https://github.com/ros/actionlib/issues/106>`_)
+* Change boost::posix_time::milliseconds init to int64_t (`#105 <https://github.com/ros/actionlib/issues/105>`_)
+* Added ROS_ERROR message for Release code when asserts are ignored (`#94 <https://github.com/ros/actionlib/issues/94>`_)
+* fix typos. (`#102 <https://github.com/ros/actionlib/issues/102>`_)
+* Contributors: Bence Magyar, Patrick Beeson, Tobias Fischer, csukuangfj
+
 1.11.13 (2018-03-14)
 --------------------
 * [bugfix] added missing boost/thread/reverse_lock.hpp include (`#95 <https://github.com/ros/actionlib/issues/95>`_)
