@@ -1,3 +1,26 @@
+## actionlib (kinetic) - 1.11.16-2
+
+The packages in the `actionlib` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release -r kinetic actionlib` on `Fri, 21 Aug 2020 16:17:09 -0000`
+
+The `actionlib` package was released.
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.11.13-0`
+- old version: `1.11.16-1`
+- new version: `1.11.16-2`
+
+Versions of tools used:
+
+- bloom version: `0.9.7`
+- catkin_pkg version: `0.4.22`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.2`
+- vcstools version: `0.1.42`
+
+
 ## actionlib (kinetic) - 1.11.16-1
 
 The packages in the `actionlib` repository were released into the `kinetic` distro by running `/usr/bin/bloom-release -r kinetic actionlib` on `Fri, 21 Aug 2020 16:13:21 -0000`
