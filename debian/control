@@ -1,0 +1,13 @@
+Source: ros-noetic-actionlib
+Section: misc
+Priority: optional
+Maintainer: Michael Carroll <michael@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-dev, libboost-thread-dev, ros-noetic-actionlib-msgs, ros-noetic-catkin (>= 0.5.78), ros-noetic-message-generation, ros-noetic-roscpp, ros-noetic-rosnode, ros-noetic-rospy, ros-noetic-rostest, ros-noetic-rosunit, ros-noetic-std-msgs
+Homepage: http://www.ros.org/wiki/actionlib
+Standards-Version: 3.9.2
+
+Package: ros-noetic-actionlib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-dev, libboost-thread-dev, ros-noetic-actionlib-msgs, ros-noetic-message-runtime, ros-noetic-roscpp, ros-noetic-rospy, ros-noetic-rostest, ros-noetic-std-msgs
+Description: The actionlib stack provides a standardized interface for interfacing with preemptable tasks.
+ Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
