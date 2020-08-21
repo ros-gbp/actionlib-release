@@ -1,0 +1,13 @@
+Source: ros-kinetic-actionlib
+Section: misc
+Priority: optional
+Maintainer: Michael Carroll <michael@openrobotics.org>
+Build-Depends: debhelper (>= 9.0.0), libboost-all-dev, ros-kinetic-actionlib-msgs, ros-kinetic-catkin (>= 0.5.78), ros-kinetic-message-generation, ros-kinetic-roscpp, ros-kinetic-rosnode, ros-kinetic-rospy, ros-kinetic-rostest, ros-kinetic-std-msgs
+Homepage: http://www.ros.org/wiki/actionlib
+Standards-Version: 3.9.2
+
+Package: ros-kinetic-actionlib
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libboost-all-dev, python-wxtools, ros-kinetic-actionlib-msgs, ros-kinetic-message-runtime, ros-kinetic-roscpp, ros-kinetic-roslib, ros-kinetic-rospy, ros-kinetic-rostest, ros-kinetic-rostopic, ros-kinetic-std-msgs
+Description: The actionlib stack provides a standardized interface for interfacing with preemptable tasks.
+ Examples of this include moving the base to a target location, performing a laser scan and returning the resulting point cloud, detecting the handle of a door, etc.
