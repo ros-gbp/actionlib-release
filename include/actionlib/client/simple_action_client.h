@@ -64,7 +64,7 @@ namespace actionlib
 /**
  * \brief A Simple client implementation of the ActionInterface which supports only one goal at a time
  *
- * The SimpleActionClient wraps the exisitng ActionClient, and exposes a limited set of easy-to-use hooks
+ * The SimpleActionClient wraps the existing ActionClient, and exposes a limited set of easy-to-use hooks
  * for the user. Note that the concept of GoalHandles has been completely hidden from the user, and that
  * they must query the SimplyActionClient directly in order to monitor a goal.
  */
@@ -72,7 +72,7 @@ template<class ActionSpec>
 class SimpleActionClient
 {
 private:
-  ACTION_DEFINITION(ActionSpec);
+  ACTION_DEFINITION(ActionSpec)
   typedef ClientGoalHandle<ActionSpec> GoalHandleT;
   typedef SimpleActionClient<ActionSpec> SimpleActionClientT;
 
@@ -338,8 +338,6 @@ template<class ActionSpec>
 SimpleClientGoalState SimpleActionClient<ActionSpec>::getState() const
 {
   if (gh_.isExpired()) {
-    ROS_ERROR_NAMED("actionlib",
-      "Trying to getState() when no goal is running. You are incorrectly using SimpleActionClient");
     return SimpleClientGoalState(SimpleClientGoalState::LOST);
   }
 
@@ -601,7 +599,8 @@ bool SimpleActionClient<ActionSpec>::waitForResult(const ros::Duration & timeout
       time_left = loop_period;
     }
 
-    done_condition_.timed_wait(lock, boost::posix_time::milliseconds(time_left.toSec() * 1000.0f));
+    done_condition_.timed_wait(lock,
+      boost::posix_time::milliseconds(static_cast<int64_t>(time_left.toSec() * 1000.0f)));
   }
 
   return cur_simple_state_ == SimpleGoalState::DONE;
