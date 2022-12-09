@@ -212,6 +212,11 @@ class SimpleActionClient:
         self.gh = None
 
     def _handle_transition(self, gh):
+
+        if gh != self.gh:
+            rospy.logerr("Got a transition callback on a goal handle that we're not tracking")
+            return
+
         comm_state = gh.get_comm_state()
 
         error_msg = "Received comm state %s when in simple state %s with SimpleActionClient in NS %s" % \
@@ -236,10 +241,10 @@ class SimpleActionClient:
                 rospy.logerr(error_msg)
         elif comm_state == CommState.DONE:
             if self.simple_state in [SimpleGoalState.PENDING, SimpleGoalState.ACTIVE]:
-                self._set_simple_state(SimpleGoalState.DONE)
                 if self.done_cb:
                     self.done_cb(gh.get_goal_status(), gh.get_result())
                 with self.done_condition:
+                    self._set_simple_state(SimpleGoalState.DONE)
                     self.done_condition.notifyAll()
             elif self.simple_state == SimpleGoalState.DONE:
                 rospy.logerr("SimpleActionClient received DONE twice")
