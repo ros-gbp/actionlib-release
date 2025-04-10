@@ -2,6 +2,15 @@
 Changelog for package actionlib
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+1.14.1 (2025-04-10)
+-------------------
+* fix typo (`#201 <https://github.com/ros/actionlib/issues/201>`_)
+* Drop shebang, Switch to new boost/bind/bind.hpp, Increase timeout for armhf (`#205 <https://github.com/ros/actionlib/issues/205>`_)
+* Fix typo (`#204 <https://github.com/ros/actionlib/issues/204>`_)
+* Fix small typo (`#208 <https://github.com/ros/actionlib/issues/208>`_)
+* Remove usages of deprecated global Boost placeholders (`#197 <https://github.com/ros/actionlib/issues/197>`_)
+* Contributors: Ben Wolsieffer, Jochen Sprickerhof, Robert Haschke, Wolfgang Merkt, Yang Hau
+
 1.14.0 (2022-12-09)
 -------------------
 * Fix constructors of SimpleActionServer (`#194 <https://github.com/ros/actionlib/issues/194>`_)
@@ -123,7 +132,7 @@ Changelog for package actionlib
   and of course it will take more time on top of this for the server to actually process the incoming goal and confirm it. Meantime, it may have sent us feedback messages.
 * Improved the const-correctness of some actionlib classes. (`#50 <https://github.com/ros/actionlib/issues/50>`_)
 * Issue `#51 <https://github.com/ros/actionlib/issues/51>`_: Remove annoying debug messages that make useless to enable debug on Python nodes, as they overwhelm less spamming messages (`#54 <https://github.com/ros/actionlib/issues/54>`_)
-* reduce change of unncessary exception on shutdown bu checking directly in before publishing for a shutdown (`#53 <https://github.com/ros/actionlib/issues/53>`_)
+* reduce change of unnecessary exception on shutdown bu checking directly in before publishing for a shutdown (`#53 <https://github.com/ros/actionlib/issues/53>`_)
 * Contributors: Blake Anderson, Daniel Stonier, Jorge Santos Simón, Mikael Arguedas, uliklank
 
 1.11.6 (2016-06-22)
