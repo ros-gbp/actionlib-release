@@ -1,3 +1,28 @@
+## actionlib (noetic) - 1.14.1-1
+
+The packages in the `actionlib` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic actionlib` on `Thu, 10 Apr 2025 01:18:48 -0000`
+
+These packages were released:
+- `actionlib`
+- `actionlib_tools`
+
+Version of package(s) in repository `actionlib`:
+
+- upstream repository: https://github.com/ros/actionlib.git
+- release repository: https://github.com/ros-gbp/actionlib-release.git
+- rosdistro version: `1.14.0-1`
+- old version: `1.14.0-1`
+- new version: `1.14.1-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## actionlib (noetic) - 1.14.0-1
 
 The packages in the `actionlib` repository were released into the `noetic` distro by running `/usr/bin/bloom-release -r noetic actionlib` on `Fri, 09 Dec 2022 14:15:12 -0000`
